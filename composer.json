@@ -1,0 +1,14 @@
+{
+    "name": "murrion/bullethq",
+    "description": "A wrapper class for the BulletHQ API",
+    "minimum-stability": "beta",
+    "authors": [
+        {
+            "name": "Gordon Murray",
+            "email": "projects@murrion.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "3.7.29"
+    }
+}
