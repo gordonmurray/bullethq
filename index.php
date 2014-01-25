@@ -15,7 +15,7 @@ $bullet = new \bullethq\bullethq($username, $password);
 
 // $suppliers = $bullet->get('suppliers'); // to receive all existing suppliers
 
-// $supplier = $bullet->get('suppliers', '12345'); // to receive a specific suppier
+// $supplier = $bullet->get('suppliers', '12345'); // to receive a specific supplier
 
 /*
 $new_client_data = array(
