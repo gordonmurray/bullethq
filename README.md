@@ -9,6 +9,8 @@ The class file in src/bullethq.php was created to learn the API and perhaps make
 Usage
 -----
 
+First, add your username and API key to credentials.inc.php and then in your PHP file(s) use the following:
+
     require_once('src/bullethq.php');
     require_once('credentials.inc.php');
 
