@@ -69,3 +69,9 @@ $new_supplier_data = array(
 // $bullet->delete('clients', '12345'); // delete a client (note: all payment data attached to the client must be deleted first
 
 // $bullet->delete('suppliers', '12345'); // delete a supplier (note: all payment data attached to the client must be deleted first
+
+// $results = $bullet->delete_all('suppliers'); // delete all suppliers (lists all suppliers first then deletes them individually)
+
+// $results = $bullet->delete_all('invoices'); // delete all invoices (lists all invoices first then deletes them individually)
+
+// $results = $bullet->delete_all('clients'); // delete all invoices (lists all invoices first then deletes them individually)

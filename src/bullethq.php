@@ -95,6 +95,32 @@ class bullethq
     }
 
     /**
+     * Deletes all occurrences of an object, such as all Clients, Invoices or Suppliers
+     * Combines a GET request to retrieve all objects first and then performs a delete request to delete individually
+     *
+     * @param $endpoint
+     * @return array
+     */
+    public function delete_all($endpoint)
+    {
+        $results = array();
+        $list = $this->get($endpoint);
+
+        foreach ($list as $item) {
+
+            $response = $this->delete($endpoint, $item['id']);
+
+            if ($response == '') {
+                $results[] = 'Error removing ' . substr($endpoint, 0, -1) . ' ' . $item['id'] . '<br />';
+            } elseif (is_array($response) && !empty($response)) {
+                $results[] = substr($endpoint, 0, -1) . ' ' . $item['id'] . ' removed successfully<br />';
+            }
+        }
+
+        return $results;
+    }
+
+    /**
      * Perform the request to the endpoint and return a response
      *
      * @param string $endpoint

@@ -81,17 +81,24 @@ Add the following at the top of your PHP page
 	
 	$new_supplier = $bullet->post('suppliers', $new_supplier_data);
 
-####Delete an Invoice####
+####Delete Invoice data####
 
 	$bullet->delete('invoices', '12345'); // delete an invoice  (note: this is not YOUR invoice ID, it is BulletHQ's ID for the record)
 
-####Delete a Client####
+	$results = $bullet->delete_all('invoices'); // delete all invoices (lists all invoices first then deletes them individually)
+
+
+####Delete Client data####
 
 	$bullet->delete('clients', '12345'); // delete a client (note: all payment data attached to the client must be deleted first
 
-####Delete a Supplier####
+	$results = $bullet->delete_all('clients'); // delete all invoices (lists all invoices first then deletes them individually)
+
+####Delete Supplier data####
 
 	$bullet->delete('suppliers', '12345'); // delete a supplier (note: all payment data attached to the client must be deleted first
+
+	$results = $bullet->delete_all('suppliers'); // delete all suppliers (lists all suppliers first then deletes them individually)
 
 ##Test status##
 
