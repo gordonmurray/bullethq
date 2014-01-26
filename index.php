@@ -50,3 +50,22 @@ $new_invoice_data = array(
 */
 
 //$new_invoice = $bullet->post('invoices', $new_invoice_data);
+
+/*
+$new_supplier_data = array(
+    "name" => "New Supplier 1",
+    "addressLine1" => "address 1",
+    "addressLine2" => "address 2",
+    "phoneNumber" => "123456789",
+    "vatNumber" => "ei23456",
+    "country" => "Ireland"
+);
+*/
+
+// $new_supplier = $bullet->post('suppliers', $new_supplier_data);
+
+// $bullet->delete('invoices', '12345'); // delete an invoice  (note: this is not YOUR invoice ID, it is BulletHQ's ID for the record)
+
+// $bullet->delete('clients', '12345'); // delete a client (note: all payment data attached to the client must be deleted first
+
+// $bullet->delete('suppliers', '12345'); // delete a supplier (note: all payment data attached to the client must be deleted first

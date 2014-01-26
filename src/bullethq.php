@@ -30,6 +30,12 @@ class bullethq
      */
     public $password = NULL;
 
+    /**
+     * Initialise the class and set a username/password to use throughout
+     *
+     * @param string $username
+     * @param string $password
+     */
     public function __construct($username = '', $password = '')
     {
         $this->username = $username;
@@ -74,9 +80,18 @@ class bullethq
 
     }
 
-    public function delete($endpoint, $record_id = '')
+    /**
+     * Delete data from the API
+     *
+     * @param $endpoint
+     * @param $record_id
+     * @return mixed
+     */
+    public function delete($endpoint, $record_id)
     {
+        $response = $this->curl_request($endpoint . '/' . $record_id, '', TRUE);
 
+        return json_decode($response, TRUE);
     }
 
     /**
@@ -86,7 +101,7 @@ class bullethq
      * @return mixed
      * @throws cURL_Exception
      */
-    private function curl_request($endpoint = '', $new_data = '')
+    private function curl_request($endpoint = '', $new_data = '', $delete = false)
     {
         $curl_handle = curl_init();
 
@@ -99,6 +114,10 @@ class bullethq
         curl_setopt($curl_handle, CURLOPT_SSL_VERIFYHOST, FALSE);
         curl_setopt($curl_handle, CURLOPT_USERPWD, $this->username . ':' . $this->password);
         curl_setopt($curl_handle, CURLOPT_VERBOSE, $this->debug_mode);
+
+        if ($delete == true) {
+            curl_setopt($curl_handle, CURLOPT_CUSTOMREQUEST, "DELETE");
+        }
 
         if ($new_data != '') {
             curl_setopt($curl_handle, CURLOPT_POST, 1);
