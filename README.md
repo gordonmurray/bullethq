@@ -34,6 +34,12 @@ Add the following at the top of your PHP page
 
 	$supplier = $bullet->get('suppliers', '12345'); // to receive a specific supplier
 
+####Retrieve Client payment data####
+
+	$client_payments = $bullet->get('clientPayments'); // to retrieve all client payments
+
+	$client_payment = $bullet->get('clientPayments', '28854'); // to retrieve a client payment
+
 ####Submit new Client####
 
 	$new_client_data = array(
@@ -81,6 +87,19 @@ Add the following at the top of your PHP page
 	
 	$new_supplier = $bullet->post('suppliers', $new_supplier_data);
 
+####Submit new client payment data####
+
+	$new_payment_data = array(
+	    'amount' => '100', // The Euro amount that the client has paid
+	    'dateReceived' => '2014-01-01',
+	    'currency' => 'EUR',
+	    'bankAccountId' => 1234, // Your Bank account ID in Bullet HQ
+	    'clientId' => 12345, // The client that has made a payment
+	    'invoiceIds' => array(array('1234')) // An existing Invoice ID that a client is paying
+	);
+
+	$new_payment = $bullet->post('clientPayments', $new_payment_data);
+
 ####Delete Invoice data####
 
 	$bullet->delete('invoices', '12345'); // delete an invoice  (note: this is not YOUR invoice ID, it is BulletHQ's ID for the record)
@@ -99,6 +118,12 @@ Add the following at the top of your PHP page
 	$bullet->delete('suppliers', '12345'); // delete a supplier (note: all payment data attached to the client must be deleted first
 
 	$results = $bullet->delete_all('suppliers'); // delete all suppliers (lists all suppliers first then deletes them individually)
+
+####Delete Client Payment data####
+
+	$bullet->delete('clientPayments', '12345'); // delete a client payment 
+
+	$results = $bullet->delete_all('clientPayments'); // delete all client payments
 
 ##Test status##
 
